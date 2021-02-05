@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+    <style>
+        p#text{
+            font-size: 10pt;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Veja a sequencia de Fibonacci ou o valor de Phi</h1>
+    <p>Quer ver quantas vezes Fibonacci?</p>
+    <input type="number" name="qtd" id="qtd">
+    <input type="button" value="Sequencia Fibonacci" onclick="StartFibo()">
+    <input type="button" value="Valor de Phi" onclick="StartPhi()">
+    <p id="test"></p>
+    
+
+    <script>
+        var num = document.getElementById('qtd');
+        var test = document.getElementById('test');
+
+
+        function StartPhi(){
+            var c = 'Phi';
+            qtd = Number(num.value);
+            qtd <= 0 ? test.innerHTML = "Escreva um numero acima para Phi se referenciar na quantidade de repetições de Fibonacci": Calc(qtd ,c);
+        }
+        function StartFibo(){
+            qtd = Number(num.value);
+            c = 'Fibo' 
+            qtd <= 0 ? test.innerText = 'Digite um numero acima': Calc(qtd, c);
+        }
+        function Calc(qtd,choice){
+            var aux, n1, n2, i;
+            n1 = 0;
+            n2 = 1;
+            i = 0;
+            test.innerHTML = '';
+            switch (choice){
+                case 'Fibo':
+                    for(var i ; i < qtd ; i++){
+                        test.innerHTML += ' '+ n1 +' ';
+                        aux = n1+n2;
+                        n1 = n2;
+                        n2 = aux;   
+                    }  
+                break;
+
+                case 'Phi':
+                    for(var i ; i < qtd ; i++){
+                        aux = n1+n2;
+                        n1 = n2;
+                        n2 = aux;      
+                    }  
+                    test.innerText = n2/n1;
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

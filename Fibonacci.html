@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Veja a sequencia de Fibonacci ou o valor de Phi</h1>
+    <p>Quer ver quantas vezes Fibonacci?</p>
+    <input type="number" name="qtd" id="qtd">
+    <input type="button" value="Sequencia Fibonacci" onclick="StartFibo()">
+    <input type="button" value="Valor de Phi" onclick="StartPhi()">
+
+
+
+    <p id="test"></p>
+
+    <script>
+        var num = document.getElementById('qtd');
+        var test = document.getElementById('test');
+
+
+        function StartPhi(){
+            var aux, n1, n2, i;
+            n1 = 0;
+            n2 = 1;
+            i = 0;
+            var qtd = 30;
+            for(var i ; i < qtd ; i++){
+                aux = n1+n2;
+                n1 = n2;
+                n2 = aux;
+            }
+            test.innerText = n2/n1;
+
+
+        }
+        function StartFibo(){
+            qtd = Number(num.value); 
+            qtd <= 0 ? test.innerText = 'Digite um numero acima': CalcFibo(qtd);
+        }
+        function CalcFibo(qtd){
+            var aux, n1, n2, i;
+            n1 = 0;
+            n2 = 1;
+            i = 0;
+            test.innerHTML = '';
+            for(var i ; i < qtd ; i++){
+                test.innerHTML += ' '+ n1 +' ';
+                aux = n1+n2;
+                n1 = n2;
+                n2 = aux;   
+            }  
+        }
+    </script>
+</body>
+</html>

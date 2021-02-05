@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt=BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        h1#titulo1{
+            font: normal 20pt Arial;
+        }
+        input#optxt{
+            width: 10px;
+        }
+        select#ops{
+            font: italic 10pt Arial;
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo1">Aqui é sua calculadora V 0.01</h1>
+    <!--<div id="ops">
+        
+        <p> -> + para somar</p>
+        <p> -> - para subtrair</p>
+        <p> -> * para multiplicar</p>
+        <p> -> / para dividir</p>
+    </div>-->
+
+    <input type="text" name="txtn1" id="txtn1">
+    <!-- <input type="text" name="optxt" id="optxt"> -->
+    <select name="ops" id="ops">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="text" name="txtn2" id="txtn2">
+    <input type="button" value="=" onclick="calc()" >
+    <p id="res"> Resultado </p>
+
+    <script>
+        var txtn1 = document.getElementsByName('txtn1')[0];
+        var optxt = document.getElementById('optxt');
+        var txtn2 = document.getElementsByName('txtn2')[0];
+        var result =document.getElementById('res');
+
+        function soma(){
+            var n1 = Number(txtn1.value);
+            var n2 = Number(txtn2.value);
+            var soma = n1 + n2;
+            result.innerText = `A soma de ${n1} e ${n2} é igual a ${soma}`; 
+        }
+        function sub(){
+            var n1 = Number(txtn1.value);
+            var n2 = Number(txtn2.value);
+            var sub = n1 -n2;
+            result.innerText = `A subitração de ${n1} e ${n2} é igual a ${sub}`
+        }
+        function mult(){
+            var n1 = Number(txtn1.value);
+            var n2 = Number(txtn2.value);
+            var m = n1 * n2;
+            result.innerText = `A multiplicação de ${n1} e ${n2} é igual a ${m}`
+
+        }
+        function divi(){
+            var n1 = Number(txtn1.value);
+            var n2 = Number(txtn2.value);
+            var d = n1 / n2
+            result.innerText = `A divisão de ${n1} e ${n2} é igual a ${d}` 
+        }
+        function calc(){
+            var op = ops.value
+            switch (op){
+                case "+" :
+                    soma();
+                break;
+
+                case "-" :
+                    sub();
+                break;
+
+                case "*" :
+                    mult();
+                break;
+
+                case "/" :
+                    divi();
+                break;
+
+                default:
+                    result.innerText = `Operador invalido`
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

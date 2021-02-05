@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt=BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relogio</title>
+    <style>
+        div#text{
+            background: rgb(219, 219, 219);
+            width: 130px;
+            font: 900 25px Courier, monospace;
+            color: rgb(255, 0, 0)    
+        }
+        input.bt{
+         margin-left: 4.5px;   
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Relogio</h1>
+    <input class="bt" type="button" value="Ligar" onclick="StartRelogio()">
+    <input class="bt" type="button" value="Desligar" onclick="StopRelogio()">
+    <!--<input type="button" value="Teste" onclick="Teste()">-->
+    <div id="text"></div>
+    <!--<p id="Teste"></p>-->
+    <script>
+        var atv = false ;
+        var txt = document.querySelector('div#text')
+        var intervaloRelogio
+        StartRelogio()
+
+        function StartRelogio(){
+            intervaloRelogio = setInterval(Relogio,1000)
+        }
+        function StopRelogio(){
+            clearInterval(intervaloRelogio);
+            txt.innerHTML = '';
+        }
+
+        function Relogio(){
+            var date = new Date();
+            var houer = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            houer = zero(houer);
+            min = zero(min);
+            sec = zero(sec); 
+            txt.innerHTML = `${houer}:${min}:${sec}`
+        }
+
+        function zero(x){
+            if(x < 10){
+                x = "0" + x
+            } return x;
+
+        }
+        /*function Teste(){
+            var teste = document.getElementById('Teste')
+            teste.innerHTML += 'Oi';
+        }*/
+    
+
+    </script>
+    
+</body>
+</html>

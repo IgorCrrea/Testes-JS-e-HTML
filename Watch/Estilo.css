@@ -1,0 +1,32 @@
+body{
+    background: rgb(112, 188, 250);
+    font: normal 15px Arial;
+}
+header{
+    color: white;
+    text-align: center;
+}
+section{
+   background: white;
+   border-radius: 5px;
+   padding: 15px;
+   width: 500px;
+   margin: auto;
+   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.384);
+}
+footer{
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+div{
+    text-align: center;
+    padding: 8px;
+}
+div#relogio{
+    background-color: rgba(128, 128, 128, 0.425);
+    font:normal 20px monospace;
+    color: red;
+    width: fit-content;
+    margin: auto;
+}
